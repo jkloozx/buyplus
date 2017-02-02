@@ -52,7 +52,7 @@ class BrandController extends Controller
         $this->assign('filter', $filter);
 
         // 考虑分页
-        $pagesize = 1;// 每页记录数
+        $pagesize = 5;// 每页记录数
         // 计算总页数
         $total = $model->where($cond)->count();// 所有符合条件的记录数
         $totalPage = ceil($total/$pagesize);// 计算总页数
