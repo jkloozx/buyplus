@@ -21,4 +21,8 @@ class BrandModel extends Model
         ['created_at', 'time', self::MODEL_INSERT, 'function'],
         ['updated_at', 'time', self::MODEL_BOTH, 'function'],
     ];
+//    protected $_auto = array(
+//        array('created_at','time',self::MODEL_INSERT,'function'),
+//        array('updated_at','time',self::MODEL_BOTH,'function'),
+//    );
 }
