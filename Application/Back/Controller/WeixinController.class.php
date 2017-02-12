@@ -46,7 +46,7 @@ class WeixinController extends Controller {
             'debug'=>true,
             'logcallback'=>'logdebug'
         );
-        $weObj = new Wechat($options);
+        $weObj = new \Org\Wechat\wechat($options);
         $weObj->valid();
         $type = $weObj->getRev()->getRevType();
         switch($type) {
