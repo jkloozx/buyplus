@@ -81,6 +81,26 @@ class wechatCallbackapiTest {
                     $msgType = "text";
                     $contentStr = '是啊是啊，是晴天呢~';
                     break;
+                case '姓名':
+                    $msgType = "text";
+                    $contentStr = 'jkloozx';
+                    break;
+                 case '性别':
+                    $msgType = "text";
+                    $contentStr = '男';
+                    break;
+                 case '年龄':
+                    $msgType = "text";
+                    $contentStr = '23';
+                    break;
+                 case '体重':
+                    $msgType = "text";
+                    $contentStr = '70kg';
+                    break;
+                 case '身高':
+                    $msgType = "text";
+                    $contentStr = '185cm';
+                    break;
                 default:
                     $msgType = "text";
                     $contentStr = '你说什么，我没有听清楚~';
