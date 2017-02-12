@@ -24,7 +24,8 @@ class WeixinController extends Controller {
             case Wechat::MSGTYPE_TEXT:
                 $key = $wx->getRev()->getRevContent();
                 if ($content = $model_reply -> getByReply_key($key)){
-                    $wx->text($content)->reply();
+//                    $wx->text($content)->reply();
+                    $wx->text("hello world")->reply();
                 }else{
                     $wx->text('你说什么，我听不清楚~')->reply();
                 }
