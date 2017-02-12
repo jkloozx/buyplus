@@ -4,11 +4,11 @@ namespace Back\Controller;
 
 use Think\Controller;
 
-class WeixinController extends Controller {
+class WxController extends Controller {
 
 
 
-    public function ReplyAction() {
+    public function replyAction() {
         $options = array(
             'token'=>'jkloozx', //填写你设定的key
             'encodingaeskey'=>'Bgmr5zO13SkH0zy8QpHQfuJoAgStUAzORusqUzuempp', //填写加密用的EncodingAESKey
@@ -42,23 +42,4 @@ class WeixinController extends Controller {
 
     }
 
-    public function deleteAction() {
-
-        $category_id = I('get.id', 0);
-        if ($category_id == 0) {
-            $this->redirect('list');
-        }
-
-        M('Category')->delete($category_id);
-        // 初始缓存配置
-        S([
-            'type' => 'Memcache',
-            'host' => '192.168.118.128',
-            'port' => '11211',
-        ]);
-        // 删除
-        S('category_tree', null);
-
-        $this->redirect('list');
-    }
 }
