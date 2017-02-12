@@ -6,11 +6,9 @@ namespace Back\Controller;
 use Think\Controller;
 use Think\Page;
 
-class BrandController extends Controller
-{
+class BrandController extends Controller {
 
-    public function addAction()
-    {
+    public function addAction() {
         if (IS_POST) {
 
             $model = D('Brand');
@@ -19,7 +17,7 @@ class BrandController extends Controller
                 $this->redirect('list');// 重定向到列表动作
             } else {
                 // 将错误信息存储到session中, 便于下个页面输出错误消息
-                session('message', ['error'=>1, 'errorInfo'=>$model->getError()]);
+                session('message', ['error' => 1, 'errorInfo' => $model->getError()]);
                 session('data', $_POST);
                 $this->redirect('add'); // 重定向到添加
             }
@@ -34,15 +32,14 @@ class BrandController extends Controller
         }
     }
 
-    public function listAction()
-    {
+    public function listAction() {
 
         $model = M('Brand');
 
         // 查询条件
         $cond = [];// 初始化查询条件
         $fitler = []; // 初始化一个用于记录查询查询的数组, 分配到视图模板中
-        if(null !== $title=I('get.filter_title', null, 'trim')) {
+        if (null !== $title = I('get.filter_title', null, 'trim')) {
             // 在请求数据中存在filter_title, 需要设置条件
             $cond['title'] = ['like', $title . '%'];
             $filter['filter_title'] = $title;
@@ -55,9 +52,9 @@ class BrandController extends Controller
         $pagesize = 5;// 每页记录数
         // 计算总页数
         $total = $model->where($cond)->count();// 所有符合条件的记录数
-        $totalPage = ceil($total/$pagesize);// 计算总页数
+        $totalPage = ceil($total / $pagesize);// 计算总页数
         $p = C('VAR_PAGE') ? C('VAR_PAGE') : 'p';// 当前的翻页参数
-        $page = I('get.'.$p, '1', 'intval');
+        $page = I('get.' . $p, '1', 'intval');
         // 考虑是否越界
         if ($page < 1) {// 小于第一页
             $page = 1;
@@ -90,11 +87,10 @@ class BrandController extends Controller
     /**
      * 专门处理ajax请求的动作
      */
-    public function ajaxAction()
-    {
+    public function ajaxAction() {
         $operate = I('request.operate', null);
         if (is_null($operate)) {
-            $this->ajaxReturn(['error'=>1, 'errorInfo'=>'没有确定的操作']);
+            $this->ajaxReturn(['error' => 1, 'errorInfo' => '没有确定的操作']);
         }
 
         switch ($operate) {
