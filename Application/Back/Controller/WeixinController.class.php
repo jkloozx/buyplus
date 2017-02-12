@@ -4,7 +4,7 @@ namespace Back\Controller;
 
 use Think\Controller;
 
-class WxController extends Controller {
+class WeixinController extends Controller {
 
 
 
@@ -15,7 +15,7 @@ class WxController extends Controller {
             'appid'=>'wx9312e7bdbaa7b825', //填写高级调用功能的app id, 请在微信开发模式后台查询
             'appsecret'=>'6028a7cbd83a463528148571f4700afd' //填写高级调用功能的密钥
         );
-        $wx = new \Org\Wechat\Wechat($options);
+        $wx = new \Org\Wechat\wechat($options);
         $model_reply = M('wx_reply');
 
         $wx->valid();
