@@ -40,6 +40,6 @@ echo json_encode($a);
 echo '<br/>';
 echo json_encode($a1);
 echo '<br/>';
-var_dump(json_decode($a3));
+var_dump(json_decode($a3,true));
 var_dump($a['main']);
 //{"main":[{"url":"123"},{"url1":"456"},{"url2":"789"}]}
