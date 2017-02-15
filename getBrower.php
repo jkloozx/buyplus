@@ -86,6 +86,6 @@ $brower = get_user_browser();
 if ($brower == WXPAY) {
 //    require_once 'http://paysdk.weixin.qq.com/example/jsapi.php';
     header("location:http://paysdk.weixin.qq.com/example/jsapi.php");
-} elseif ($brower == false) {
+} elseif ($brower == ALIPAY) {
     require_once './wangzhanzhifuDemo/wappay/pay.php';
 }
