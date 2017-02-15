@@ -72,18 +72,18 @@ function get_user_browser() {
 //    }
     $str1 = 'Mozilla/5.0 (Linux; U; Android 5.0.2; zh-cn; Redmi Note 2 Build/LRX22G) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/1.0.0.100 U3/0.8.0 Mobile Safari/534.30 Nebula AlipayDefined(nt:4G,ws:360|640|3.0) AliApp(AP/10.0.2.012305) AlipayClient/10.0.2.012305 Language/zh-Hans useStatusBar/true';
     $str2 = 'Mozilla/5.0 (Linux; Android 5.0.2; Redmi Note 2 Build/LRX22G; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043024 Safari/537.36 MicroMessenger/6.5.4.1000 NetType/4G Language/zh_CN';
-    if (strpos($agent,'AlipayClient')){
+    if (strpos($agent, 'AlipayClient')) {
         $brower = ALIPAY;
     }
-    if (strpos($agent,'MicroMessenger')){
+    if (strpos($agent, 'MicroMessenger')) {
         $brower = WXPAY;
     }
     return $brower;
 }
+
 $brower = get_user_browser();
-if ($brower == WXPAY){
-    echo '微信浏览器';
-}
-if ($brower == ALIPAY){
-    echo '支付宝浏览器';
+if ($brower == WXPAY) {
+    require_once './WxpayAPI_php_v3/index.php';
+} elseif ($brower == ALIPAY) {
+    require_once './wangzhanzhifuDemo/index.php';
 }
