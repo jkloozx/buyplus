@@ -78,6 +78,7 @@ function get_user_browser() {
     if (strpos($agent,'MicroMessenger')){
         $brower = WXPAY;
     }
+    return $brower;
 }
 $brower = get_user_browser();
 if ($brower == WXPAY){
@@ -86,4 +87,3 @@ if ($brower == WXPAY){
 if ($brower == ALIPAY){
     echo '支付宝浏览器';
 }
-
